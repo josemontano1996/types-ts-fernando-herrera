@@ -1,73 +1,84 @@
 "use strict";
 (() => {
-    class Mutant {
-        constructor(name, realName) {
-            this.name = name;
-            this.realName = realName;
-        }
-    }
-    class Xmen extends Mutant {
-        saveWorld() {
-            return 'World Saved';
-        }
-    }
-    class Villian extends Mutant {
-        conquerWorld() {
-            return 'World Conquered';
-        }
-    }
-    const wolverine = new Xmen('Wolverine', 'Logan');
-    const magneto = new Villian('Magneto', 'Magnus');
-    const printName = (character) => {
+    let flash = {
+        name: 'Barry Allen',
+        age: 24,
+        powers: ['Super speed', 'Time travelling'],
     };
-    printName(wolverine);
+    let superman = {
+        name: 'Clark Kent',
+        age: 60,
+        powers: ['Super speed'],
+        getName() {
+            return this.name;
+        },
+    };
 })();
 (() => {
+    class Mutant {
+        mutantPower(id) {
+            return this.name + ' ' + this.realName;
+        }
+    }
 })();
 (() => {
-    class Avenger {
-        constructor(name, realName) {
-            this.name = name;
-            this.realName = realName;
-        }
-        getFullName() {
-            return `${this.name} ${this.realName}`;
-        }
-    }
-    class Xmen extends Avenger {
-        constructor(name, realName, isMutant) {
-            super(name, realName);
-            this.isMutant = isMutant;
-        }
-        get fullName() {
-            return `${this.name} - ${this.realName}`;
-        }
-        set fullName(name) {
-            this.name = name;
-        }
-        getFullNameDesdeXmen() {
-        }
-    }
-    const wolverine = new Xmen('Wolverine', 'Logan', true);
-    wolverine.fullName = 'Fernando';
+    const client = {
+        name: 'Josema',
+        age: 27,
+        address: {
+            id: 12345,
+            zip: 23456,
+            city: 'Beckingen',
+        },
+        getFullAddress(id) {
+            return this.address.zip;
+        },
+    };
+    const client2 = {
+        name: 'Melisa',
+        age: 30,
+        address: {
+            id: 1234,
+            zip: 1234351,
+            city: 'Beckingen',
+        },
+        getFullAddress(id) {
+            return this.address.zip;
+        },
+    };
 })();
 (() => {
-    class Apocalipse {
-        constructor(name) {
-            this.name = name;
-        }
-        static callApocalipse() {
-            if (!Apocalipse.instance) {
-                Apocalipse.instance = new Apocalipse('Soy apocalipsis');
-            }
-            return Apocalipse.instance;
-        }
-        changeName(newName) {
-            this.name = newName;
-        }
-    }
-    const apocalipsis = Apocalipse.callApocalipse();
-    apocalipsis.changeName('Xavier');
-    console.log(apocalipsis);
+    let addNumbersFunction;
+    addNumbersFunction = (a, b) => {
+        return 10;
+    };
 })();
+const conducirBatimovil = (auto) => {
+    auto.encender = true;
+    auto.velocidadMaxima = 100;
+    auto.acelerar();
+};
+const batimovil = {
+    encender: false,
+    velocidadMaxima: 0,
+    acelerar() {
+        console.log('...... gogogo!!!');
+    },
+};
+const guason = {
+    reir: true,
+    comer: true,
+    llorar: false,
+};
+const reir = (guason) => {
+    if (guason.reir) {
+        console.log('JAJAJAJA');
+    }
+};
+const ciudadGotica = (ciudadanos) => {
+    return ciudadanos.length;
+};
+class Persona {
+    imprimirBio() { }
+}
 //# sourceMappingURL=main.js.map
