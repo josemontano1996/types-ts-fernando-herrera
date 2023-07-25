@@ -1,51 +1,55 @@
 "use strict";
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
+(() => {
+    class Mutant {
+        constructor(name, realName) {
+            this.name = name;
+            this.realName = realName;
         }
-    return t;
-};
-(() => {
-    const avengers = {
-        nick: 'Samuel L. Jackson',
-        ironman: 'Robert Downey JR.',
-        vision: 'Paul Bettany',
-        activo: true,
-        poder: 1500,
-    };
-    const printAvenger = (_a) => {
-        var { ironman } = _a, rest = __rest(_a, ["ironman"]);
-        console.log(ironman);
-        console.log(rest);
-    };
-    const avengersArr = ['Cap. America', 'Ironman', 'Hulk'];
-    const [, ironman,] = avengersArr;
-    console.log({ ironman });
-})();
-(() => {
-    const ironman = {
-        name: 'Ironman',
-        weapon: 'Armorsuit',
-    };
-    const captainAmerica = {
-        name: 'Captain America',
-        weapon: 'Escudo',
-    };
-    const thor = {
-        name: 'Thor',
-        weapon: 'Mjolnir',
-    };
-    const avengers = [ironman, thor, captainAmerica];
-    for (const avenger of avengers) {
-        console.log(avenger);
     }
+    class Xmen extends Mutant {
+        saveWorld() {
+            return 'World Saved';
+        }
+    }
+    class Villian extends Mutant {
+        conquerWorld() {
+            return 'World Conquered';
+        }
+    }
+    const wolverine = new Xmen('Wolverine', 'Logan');
+    const magneto = new Villian('Magneto', 'Magnus');
+    const printName = (character) => {
+        console.log(character.realName);
+    };
+    printName(wolverine);
 })();
 (() => {
-    console.log('let');
+})();
+(() => {
+    class Avenger {
+        constructor(name, realName) {
+            this.name = name;
+            this.realName = realName;
+        }
+        getFullName() {
+            return `${this.name} ${this.realName}`;
+        }
+    }
+    class Xmen extends Avenger {
+        constructor(name, realName, isMutant) {
+            super(name, realName);
+            this.isMutant = isMutant;
+        }
+        get fullName() {
+            return `${this.name} - ${this.realName}`;
+        }
+        set fullName(name) {
+            this.name = name;
+        }
+        getFullNameDesdeXmen() {
+        }
+    }
+    const wolverine = new Xmen('Wolverine', 'Logan', true);
+    wolverine.fullName = 'Fernando';
 })();
 //# sourceMappingURL=main.js.map
