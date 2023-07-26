@@ -68,11 +68,11 @@ interface Person {
     - estadoCivil
     - imprimirBio(): void // en consola una breve descripcion.
 */
-class Persona implements Person {
+/* class Persona implements Person {
   public nombre: string;
   public edad: number;
   public sexo: string;
   public estadoCivil: string;
   imprimirBio() {}
-}
+} */
 
